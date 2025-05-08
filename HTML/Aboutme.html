@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me</title>
+  <style>
+    /* -------------------- Fonts Import -------------------- */
+    @import url('https://fonts.googleapis.com/css2?family=WindSong&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap');
+    @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+
+    /* -------------------- Global Styles -------------------- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: #000000;
+    }
+
+    /* -------------------- Page Content Animation -------------------- */
+    .page-content {
+      animation: slideBounceIn 1s ease-out forwards;
+      opacity: 0;
+    }
+
+    @keyframes slideBounceIn {
+      0% {
+        transform: translateY(100px);
+        opacity: 0;
+      }
+      60% {
+        transform: translateY(-20px);
+        opacity: 1;
+      }
+      80% {
+        transform: translateY(10px);
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    /* -------------------- Section Styling -------------------- */
+    section {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 0;
+      z-index: 1;
+    }
+
+    section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('myabout.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: -1;
+    }
+
+    /* -------------------- Hover Effect - Circular Image -------------------- */
+    .hover-image {
+      position: absolute;
+      bottom: 32%;
+      width: 405px;
+      height: 405px;
+      border-radius: 50%;
+      background-image: url('mypic.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    section:hover .hover-image {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+
+    /* -------------------- Header Styling -------------------- */
+    header {
+      background-color: #000000;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 80px;
+      padding: 0 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 2;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container .logo {
+      max-width: 60px;
+      margin-right: 10px;
+    }
+
+    .logo-container .second-logo {
+      max-width: 250px;
+      margin-bottom: 2%;
+    }
+
+    header ul {
+      display: flex;
+      list-style: none;
+    }
+
+    header ul li {
+      margin-left: 20px;
+    }
+
+    header ul li a {
+      font-family: "Lavishly Yours", cursive;
+      font-size: 35px;
+      color: #d6d1cc;
+      font-weight: 150;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      width: 100%;
+      height: 4px;
+      background-color: white;
+    }
+
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background-color: #000000;
+      position: absolute;
+      top: 80px;
+      right: 0;
+      width: 100%;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    .mobile-nav a {
+      font-family: "Lavishly Yours", cursive;
+      font-size: 25px;
+      color: #d6d1cc;
+      font-style: light;
+      font-variant: normal;
+      text-decoration: none;
+      margin: 5px 0;
+    }
+
+    /* -------------------- "Hi!!" Greeting Animation -------------------- */
+    @keyframes wave {
+      0% { transform: rotate(0deg); }
+      15% { transform: rotate(14deg); }
+      30% { transform: rotate(-8deg); }
+      45% { transform: rotate(14deg); }
+      60% { transform: rotate(-4deg); }
+      75% { transform: rotate(10deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    .hi-box {
+      position: absolute;
+      top: 12.5%;
+      left: 8%;
+      font-family: "WindSong", cursive;
+      font-size: 25px;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 12px;
+      z-index: 1;
+      display: inline-block;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .hi-box.animate-wave {
+      animation: wave 1s ease-in-out;
+      transform-origin: 70% 70%;
+    }
+
+    .hi-box:hover {
+      animation: wave 1s ease-in-out;
+      transform-origin: 70% 70%;
+    }
+
+    /* -------------------- Content Box Styling -------------------- */
+    .content-box {
+      position: absolute;
+      bottom: 5%;
+      right: 10%;
+      width: 850px;
+      padding: 20px;
+      color: #fff;
+      border-radius: 10px;
+      text-align: right;
+      z-index: 3;
+    }
+
+    .content-box h2 {
+      font-size: 30px;
+      margin-bottom: 10px;
+      font-family: "WindSong", cursive;
+    }
+
+    @keyframes wiggle {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-2px); }
+      50% { transform: translateX(2px); }
+      75% { transform: translateX(-1px); }
+      100% { transform: translateX(0); }
+    }
+
+    .content-box h2:hover {
+      animation: wiggle 0.4s ease-in-out;
+    }
+
+    .content-box p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* -------------------- Responsive Styles -------------------- */
+    @media (max-width: 1080px) {
+      .content {
+        font-size: smaller;
+      }
+
+      .logo-container .second-logo {
+        margin-right: 0%;
+      }
+
+      header ul li a {
+        font-size: 28px;
+      }
+
+      header ul li {
+        margin-left: 8px;
+      }
+
+      .content-box p {
+        font-size: small;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section {
+        width: 100%;
+        padding: 5px 0;
+      }
+
+      .content {
+        flex-direction: column;
+      }
+
+      .content-box {
+        width: 80%;
+        left: 10%;
+        text-align: justify;
+      }
+
+      .hi-box {
+        padding: 5px 10px;
+      }
+
+      header ul li a {
+        font-size: 28px;
+      }
+
+      header ul li {
+        margin-left: 10px;
+      }
+
+      .logo-container .second-logo {
+        display: none;
+      }
+
+      .content-box p {
+        font-size: x-small;
+      }
+    }
+
+    @media (max-width: 600px) {
+      header ul {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .mobile-nav.active {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-content">
+    <!-- -------------------- Header Section -------------------- -->
+    <header>
+      <div class="logo-container">
+        <!-- Logo and second logo -->
+        <a href="Homepage.html">
+          <img src="logo.png" class="logo" />
+          <img src="logo1.png" class="logo second-logo" />
+        </a>
+      </div>
+      
+      <!-- Hamburger menu for mobile view -->
+      <div class="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <!-- Mobile navigation menu -->
+      <div class="mobile-nav">
+        <a href="Aboutme.html">About me</a>
+        <a href="Portfolio.html">Portfolio</a>
+        <a href="Contactme.html">Contact me</a>
+      </div>
+
+      <!-- Desktop navigation menu -->
+      <ul>
+        <li><a href="Aboutme.html">About me</a></li>
+        <li><a href="Portfolio.html">Portfolio</a></li>
+        <li><a href="Contactme.html">Contact me</a></li>
+      </ul>
+    </header>
+
+    <!-- -------------------- Section: Designer -------------------- -->
+    <section id="designer">
+      <!-- Hover effect circular image -->
+      <div class="hover-image"></div>
+
+      <!-- Greeting box -->
+      <div class="hi-box">Hi!!</div>
+
+      <!-- Content box with a description -->
+      <div class="content-box">
+        <h2>About Me ...</h2>
+        <p>
+          I am a story woven in code, a thinker in pixels and prose. <br />
+          With every line I write, I carve meaning into machines—not just to function, but to feel. <br /><br />
+          From curious spark to creative fire, I build, I break, I become. <br />
+          Rooted in reason, reaching for wonder—this is my journey, this is my design.<br /><br />
+          Welcome to my personal website where I share my journey, skills, and projects.
+          Feel free to explore my portfolio and contact me if you have any questions!
+        </p>
+      </div>
+    </section>
+  </div>
+
+  <!-- -------------------- Script Section -------------------- -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      // Smooth page transition when links are clicked
+      const links = document.querySelectorAll('a[href]');
+      links.forEach(link => {
+        if (link.closest('.logo-container') || link.closest('header ul')) {
+          return;
+        }
+        link.addEventListener('click', function (e) {
+          if (this.getAttribute('href') !== '#') {
+            e.preventDefault();
+            document.getElementById('loader').style.display = 'flex';
+            setTimeout(() => {
+              window.location.href = this.getAttribute('href');
+            }, 1500);
+          }
+        });
+      });
+
+      // Toggle hamburger menu visibility on mobile
+      const hamburger = document.querySelector('.hamburger');
+      const mobileNav = document.querySelector('.mobile-nav');
+
+      if (hamburger && mobileNav) {
+        hamburger.addEventListener('click', () => {
+          mobileNav.classList.toggle('active');
+        });
+      }
+
+      // Greeting box animation effect
+      const hiBox = document.querySelector('.hi-box');
+      if (hiBox) {
+        hiBox.classList.add('animate-wave');
+        hiBox.addEventListener('animationend', () => {
+          hiBox.classList.remove('animate-wave');
+        });
+      }
+    });
+  </script>
+</body>
+</html>

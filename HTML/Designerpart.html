@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Designer Part</title>
+
+    <!-- Google Fonts Import -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lavishly+Yours&display=swap');
+        @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Princess+Sofia&display=swap');
+
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #000000 url('designer.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        /* Header Navigation */
+        header {
+            background-color: #000000;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 80px;
+            padding: 0 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-container .logo {
+            max-width: 55px;
+            margin-right: 5px;
+        }
+
+        .logo-container .second-logo {
+            max-width: 250px;
+            margin-bottom: 2%;
+        }
+
+        header ul {
+            display: flex;
+            list-style: none;
+        }
+
+        header ul li {
+            margin-left: 25px;
+        }
+
+        header ul li a {
+            font-family: "Lavishly Yours", cursive;
+            font-size: 35px;
+            color: #d6d1cc;
+            font-style: light;
+            font-variant: normal;
+            font-weight: 150;
+            line-height: 32.3px;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        /* Mobile Menu Button */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .hamburger div {
+            width: 100%;
+            height: 4px;
+            background-color: white;
+        }
+
+        /* Mobile Dropdown Menu */
+        .mobile-nav {
+            display: none;
+            flex-direction: column;
+            background-color: #000000;
+            position: absolute;
+            top: 80px;
+            right: 0;
+            width: 100%;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .mobile-nav a {
+            font-family: "Lavishly Yours", cursive;
+            font-size: 25px;
+            color: #d6d1cc;
+            font-style: light;
+            font-variant: normal;
+            text-decoration: none;
+            margin: 5px 0;
+        }
+
+        /* Content Styling */
+        .content-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100vh;
+            padding: 0 5%;
+        }
+
+        .text-box-left-box, .text-box-right-box {
+            width: 45%;
+            padding: 20px;
+            color: #ffffff;
+            font-size: 28px;
+            font-family: "Princess Sofia", cursive !important;
+            border-radius: 10px;
+            min-height: 150px;
+            white-space: pre-line;
+        }
+
+        .text-box-left-box {
+            margin-top: -450px;
+            margin-left: -70px;
+            max-width: 250px;
+        }
+
+        .text-box-right-box {
+            margin-right: -60px;
+            text-align: left;
+            max-width: 750px;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .content-container {
+                flex-direction: column;
+                padding-top: 100px;
+            }
+
+            .text-box {
+                width: 90%;
+                margin-bottom: 20px;
+            }
+        }
+
+        /* Tablet View Adjustments */
+        @media (max-width: 1080px) {
+            .logo-container .second-logo {
+                margin-right: 0%;
+            }
+
+            header ul li a {
+                font-size: 28px;
+            }
+
+            header ul li {
+                margin-left: 8px;
+            }
+        }
+
+        /* Mobile View Adjustments */
+        @media (max-width: 768px) {
+            header ul li a {
+                font-size: 28px;
+            }
+
+            header ul li {
+                margin-left: 10px;
+            }
+
+            .logo-container .second-logo {
+                display: none;
+            }
+
+            .content-container {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding: 20px 5px;
+                height: auto;
+            }
+
+            .text-box-left-box {
+                display: none; /* Hide left box on mobile */
+            }
+
+            .text-box-right-box {
+                margin-bottom: -1250px;
+                width: 95%;
+                font-size: 22px;
+                padding: 15px 15px;
+                text-align: left;
+                max-width: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+            header ul {
+                display: none;
+            }
+
+            /* Show hamburger menu */
+            .hamburger {
+                display: flex;
+            }
+
+            /* Show the mobile menu when active */
+            .mobile-nav.active {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <!-- Header with Navigation -->
+        <header>
+            <div class="logo-container">
+                <a href="Homepage.html">
+                    <img src="logo.png" class="logo">
+                    <img src="logo1.png" class="logo second-logo">
+                </a>
+            </div>
+            <!-- Hamburger menu for mobile view -->
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+    
+            <!-- Mobile Navigation Menu -->
+            <div class="mobile-nav">
+                <a href="Aboutme.html">About me</a>
+                <a href="Portfolio.html">Portfolio</a>
+                <a href="Contactme.html">Contact me</a>
+            </div>
+            <!-- Desktop Navigation Menu -->
+            <ul>
+                <li><a href="Aboutme.html">About me</a></li>
+                <li><a href="Portfolio.html">Portfolio</a></li>
+                <li><a href="Contactme.html">Contact me</a></li>
+            </ul>
+        </header>
+
+        <!-- Content Section -->
+        <div class="content-container">
+            <div class="text-box-left-box" id="leftBox"></div>
+            <div class="text-box-right-box" id="rightBox"></div>
+        </div>
+        
+        <!-- JavaScript for Dynamic Typing Effect and Interactivity -->
+        <script>
+            // Function to simulate word-by-word effect
+            function wordEffect(container, text, speed = 100, callback = null, styled = false) {
+                const words = text.split(" ");
+                let i = 0;
+        
+                function showWord() {
+                    if (i < words.length) {
+                        const word = words[i];
+        
+                        // Apply styling if required
+                        if (styled) {
+                            const span = document.createElement("span");
+                            span.textContent = word + " ";
+                            span.style.background = "rgba(0, 0, 0, 0.9)";
+                            span.style.fontFamily = "'Princess Sofia', cursive";
+                            span.style.color = "#ffffff";
+                            span.style.fontSize = "20px";
+                            span.style.boxShadow = "0 0 5px rgba(255, 255, 255, 0.2)";
+                            span.style.whiteSpace = "pre-wrap";
+                            container.appendChild(span);
+                        } else {
+                            // Append plain word
+                            container.innerHTML += word + " ";
+                        }
+        
+                        i++;
+                        setTimeout(showWord, speed);
+                    } else if (callback) {
+                        callback();
+                    }
+                }
+        
+                showWord();
+            }
+        
+            document.addEventListener("DOMContentLoaded", function () {
+                // Text for left and right boxes
+                const leftText = "Welcome to my design portfolio. I bring creative ideas to life with visual magic.";
+                const rightText = "I bring to picture the incredible wonders a human brain can imagine — from fleeting thoughts to full-blown visual stories. Every pixel I place is a tribute to possibility. For me, design isn't just about aesthetics; it's about translating emotion, purpose, and vision into something tangible. I believe nothing is impossible for a designer to bring to life — if you can dream it, you can design it...!";
+        
+                // Get elements for the left and right boxes
+                const leftBox = document.getElementById("leftBox");
+                const rightBox = document.getElementById("rightBox");
+        
+                // First reveal plain text in leftBox
+                setTimeout(() => {
+                    wordEffect(leftBox, leftText, 100, () => {
+                        // Then reveal styled text in rightBox
+                        setTimeout(() => {
+                            wordEffect(rightBox, rightText, 80, null, true);
+                        }, 300);
+                    }, false);
+                }, 300);
+        
+                // Event listener for hamburger menu toggle on mobile
+                const hamburger = document.querySelector('.hamburger');
+                const mobileNav = document.querySelector('.mobile-nav');
+            
+                if (hamburger && mobileNav) {
+                    hamburger.addEventListener('click', () => {
+                        mobileNav.classList.toggle('active');
+                    });
+                }
+            });
+        </script>                 
+    </div>
+</body>
+</html>

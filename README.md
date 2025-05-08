@@ -68,7 +68,9 @@ A full video demonstration of the user journey — from the home page to each se
 
 ```
 /assets
+  /logo        → logos
   /images      → All visuals and illustrations
+  /logo        → All backgrounds
 /HTML
 index.html     → Homepage
 about.html     → About Me page

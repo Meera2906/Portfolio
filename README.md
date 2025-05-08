@@ -69,10 +69,7 @@ A full video demonstration of the user journey — from the home page to each se
 ```
 /assets
   /images      → All visuals and illustrations
-/css
-  style.css    → Main stylesheet
-/js
-  script.js    → Page interaction logic
+/HTML
 index.html     → Homepage
 about.html     → About Me page
 designer.html  → Designer section
